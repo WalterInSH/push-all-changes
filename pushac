@@ -1,0 +1,9 @@
+#!/bin/sh
+
+staged_file_quantity=$(git status --porcelain 2>/dev/null| grep "^M" | wc -l)
+new_file_quantity=$(git status --porcelain 2>/dev/null| grep "^ M" | wc -l)
+removed_file_quantity=$(git status --porcelain 2>/dev/null| grep "^D" | wc -l)
+
+echo "$staged_file_quantity files in stage area"
+echo "$new_file_quantity"
+echo "removed $removed_file_quantity files"
